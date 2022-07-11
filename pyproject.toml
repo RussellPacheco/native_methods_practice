@@ -1,0 +1,18 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+markers = [
+    "strings",
+    "capitalize", 
+    "center", 
+    "count", 
+    "index", 
+    "isLower", 
+    "isNumeric", 
+    "join", 
+    "lower", 
+    "replace", 
+    "split", 
+    "title"]

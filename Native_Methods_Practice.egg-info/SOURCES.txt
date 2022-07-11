@@ -1,0 +1,6 @@
+pyproject.toml
+setup.cfg
+Native_Methods_Practice.egg-info/PKG-INFO
+Native_Methods_Practice.egg-info/SOURCES.txt
+Native_Methods_Practice.egg-info/dependency_links.txt
+Native_Methods_Practice.egg-info/top_level.txt
