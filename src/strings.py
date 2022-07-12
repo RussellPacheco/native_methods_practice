@@ -5,7 +5,7 @@ def center(string: str, length: int, character: str ) -> str:
     #Return a centered string in the specified length with the
     #optional specified character as the fill character  
     pass
-def count(string: str, value: str) -> str:
+def count(string: str, value: str, start:int, end: int) -> str:
     #Return the number of times a specified value occurs in a string
     pass
 def index(string: str, index: int) -> int:
