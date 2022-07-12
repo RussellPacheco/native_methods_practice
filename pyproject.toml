@@ -16,4 +16,15 @@ markers = [
     "replace", 
     "split", 
     "title",
+    "lists",
+    "append",
+    "clear",
+    "copy",
+    "count",
+    "extend",
+    "index",
+    "pop",
+    "remove",
+    "reverse",
+    "sort"
     ]
