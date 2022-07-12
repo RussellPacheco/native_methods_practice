@@ -8,13 +8,13 @@ def center(string: str, length: int, character: str ) -> str:
 def count(string: str, value: str, start:int, end: int) -> str:
     #Return the number of times a specified value occurs in a string
     pass
-def index(string: str, index: int) -> int:
+def index(string: str, value: str, start: int, end: int) -> int:
     #Search string for specified value and return the position of where it was found
     pass
-def isLower(string: str) -> bool:
+def islower(string: str) -> bool:
     #Return true if all characters are lowercase
     pass
-def isNumeric(string: str) -> str:
+def isnumeric(string: str) -> str:
     #Return true if all characters in the string are numeric
     pass
 def join(iterable: list, separator: str) -> str:
@@ -23,8 +23,8 @@ def join(iterable: list, separator: str) -> str:
 def lower(string: str) -> str:
     #Convert a string into lowercase
     pass
-def replace(string: str, old_str:str, new_str: str ) -> str:
-    #Return a string where a specified value is replaced with a specified value
+def replace(string: str, old_value:str, new_value: str ) -> str:
+    #Return a new string where a specified value is replaced with a specified value
     pass
 def split(string: str, separator: str) -> list:
     #Split the string at the specified separator and return a list

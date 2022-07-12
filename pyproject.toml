@@ -9,10 +9,11 @@ markers = [
     "center", 
     "count", 
     "index", 
-    "isLower", 
-    "isNumeric", 
+    "islower", 
+    "isnumeric", 
     "join", 
     "lower", 
     "replace", 
     "split", 
-    "title"]
+    "title",
+    ]
