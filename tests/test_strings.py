@@ -1,5 +1,5 @@
 import pytest
-from src import *
+from src.strings import *
 
 @pytest.mark.strings
 @pytest.mark.capitalize
@@ -29,7 +29,7 @@ def test_center_one(string, length, char, expected):
 
 @pytest.mark.strings
 @pytest.mark.center
-@pytest.mark.parametrize("string,length,char,not_expected", [("hello", "hello"), ("russell", 16, "-", "----russell-----")])
+@pytest.mark.parametrize("string,length,char,not_expected", [("hello", 10, " " , "hello"), ("russell", 16, "-", "----russell-----")])
 def test_center_two(string, length, char, not_expected):
     assert center(string, length, char) != not_expected
 

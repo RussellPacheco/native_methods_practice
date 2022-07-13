@@ -10,14 +10,15 @@ def copy(array: list) -> list:
 def count(array: list, value: any) -> int:
     #Return the number of elements with the specified value
     pass
-def extend(array: list, array_two: list) -> list:
+def extend(array: list, iterable: any) -> list:
     #Add the element of a list (or any iterable), to the end of the current list
     pass
 def index(array: list, value: any) -> list:
     #Return the index of the first element with the specified value
     pass
 def pop(array: list, index: int) -> list:
-    #Remove the element at the specified position
+    #Remove the element at the specified position. If index is not specified, pops the last
+    #element in the index.
     pass
 def remove(array: list, value: any) -> list:
     #Remove the first item with the specified value
