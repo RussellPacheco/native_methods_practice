@@ -1,5 +1,5 @@
 import pytest
-from src.strings import *
+from ..src.strings import *
 
 @pytest.mark.strings
 @pytest.mark.capitalize

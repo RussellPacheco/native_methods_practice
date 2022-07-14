@@ -26,6 +26,6 @@ def remove(array: list, value: any) -> list:
 def reverse(array: list) -> list:
     #Return a list in the reverse order
     pass
-def sort(array: list) -> list:
-    #Return a sorted list
+def sort(array: list, reverse: bool) -> list:
+    #Return a sorted list ascending by default unless reverse is set to True
     pass

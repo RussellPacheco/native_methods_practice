@@ -1,5 +1,5 @@
 import pytest
-from src.lists import *
+from ..src.lists import *
 
 @pytest.mark.lists
 @pytest.mark.append
@@ -83,7 +83,6 @@ def test_extend_three():
     arrID = id(arr)
     assert id(extend(arr, [4,5,6])) == arrID
 
-
 @pytest.mark.lists
 @pytest.mark.index
 @pytest.mark.parametrize("array,value,expected", [([1,2,3], 3, 2), (["a","b","c"], "b", 1), (["a", "a", "c", "d", "c"], "c", 2)])
@@ -97,55 +96,53 @@ def test_index_two(array, value, expected):
     with pytest.raises(expected):
         index(array, value)
 
-
 @pytest.mark.lists
 @pytest.mark.pop
-@pytest.mark.parametrize("array,index,expected", [([1,2,3], -1, 3), ([1,2,3], 0, 1), ["a", "b", "c"], 2, "c"])
-def text_pop_one(array, index, expected):
+@pytest.mark.parametrize("array,index,expected", [([1,2,3], -1, 3), ([1,2,3], 0, 1), (["a", "b", "c"], 2, "c")])
+def test_pop_one(array, index, expected):
     assert pop(array, index) == expected
 
 @pytest.mark.lists
 @pytest.mark.pop
 @pytest.mark.parametrize("array,index,expected_exception", [([1,2,3], 3, IndexError), ("1,2,3", 0, TypeError)])
-def text_pop_two(array, index, expected_exception):
+def test_pop_two(array, index, expected_exception):
     with pytest.raises(expected_exception):
         pop(array, index)
 
 @pytest.mark.lists
 @pytest.mark.remove
 @pytest.mark.parametrize("array,value,expected", [([1,2,3], 1, [2,3]), (["a", "b", "c"], "b", ["a", "c"])])
-def text_remove_one(array, value, expected):
+def test_remove_one(array, value, expected):
     assert remove(array, value) == expected
 
-
 @pytest.mark.lists
 @pytest.mark.remove
-@pytest.mark.parametrize
-
-@pytest.mark.lists
-@pytest.mark.remove
-@pytest.mark.parametrize
-
-@pytest.mark.lists
-@pytest.mark.reverse
-@pytest.mark.parametrize
+@pytest.mark.parametrize("array,value,expected_exception", [([1,2,3], 4, ValueError), ("123", 3, TypeError)])
+def test_remove_two(array, value, expected_exception):
+    with pytest.raises(expected_exception):
+        remove(array, value)
 
 @pytest.mark.lists
 @pytest.mark.reverse
-@pytest.mark.parametrize
+@pytest.mark.parametrize("array,expected", [([1,2,3], [3,2,1]), (["a", "b", "c"], ["c", "b", "a"]), ([], [])])
+def test_reverse_one(array, expected):
+    assert reverse(array) == expected
 
 @pytest.mark.lists
 @pytest.mark.reverse
-@pytest.mark.parametrize
+def test_reverse_two():
+    arr = [1,2,3]
+    arrID = id(arr)
+    assert id(reverse(arr)) == arrID
+
+@pytest.mark.lists
+@pytest.mark.reverse
+def test_reverse_three():
+    with pytest.raises(TypeError):
+        reverse("abc")
 
 @pytest.mark.lists
 @pytest.mark.sort
-@pytest.mark.parametrize
-
-@pytest.mark.lists
-@pytest.mark.sort
-@pytest.mark.parametrize
-
-@pytest.mark.lists
-@pytest.mark.sort
-@pytest.mark.parametrize
+@pytest.mark.parametrize("array,reverse,expected", [([1,3,2], False, [1,2,3]), (["d", "c", "a"], False, ["a", "c", "d"]), (["a", "b", "c"], True, ["c", "b", "a"])])
+def test_sort_one(array, reverse, expected):
+    assert sort(array, reverse) == expected

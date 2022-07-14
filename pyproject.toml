@@ -26,5 +26,13 @@ markers = [
     "pop",
     "remove",
     "reverse",
-    "sort"
+    "sort",
+    "dictionaries",
+    "clear_d",
+    "copy_d",
+    "get",
+    "items",
+    "pop_d",
+    "update",
+    "values"
     ]

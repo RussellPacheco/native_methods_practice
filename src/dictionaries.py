@@ -4,8 +4,8 @@ def clear(dic: dict) -> dict:
 def copy(dic: dict) -> dict:
     #Return a copy of the dictionary
     pass
-def get(dic: dict, key: str) -> any:
-    #Return the value of the specified key
+def get(dic: dict, key: str, value: any) -> any:
+    #Return the value of the specified key, otherwise return value if not exist with a default value of None
     pass
 def items(dic: dict) -> list:
     #Return a tuple for each key value pair
