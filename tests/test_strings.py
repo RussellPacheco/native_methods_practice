@@ -35,7 +35,7 @@ def test_center_two(string, length, char, not_expected):
 
 @pytest.mark.strings
 @pytest.mark.center
-@pytest.mark.parametrize("string,length,char", [(3, 3, "-")])
+@pytest.mark.parametrize("string,length,char", [(3, 3, "-"), ("hello", "2", "-"), ("hello", 12, 2)])
 def test_center_three(string, length, char):
     with pytest.raises(TypeError):
         center(string, length, char)
@@ -169,9 +169,9 @@ def test_replace_two(string, old_value, new_value, count, not_expected):
 @pytest.mark.strings
 @pytest.mark.replace
 @pytest.mark.parametrize("string,old_value,new_value,count", [(34324, "32", "12", 1), ("hello", 12, "rr", 1), ("hello", "ll", "rr", "2") ])
-def test_replace_three(string, old_value, new_value):
+def test_replace_three(string, old_value, new_value, count):
     with pytest.raises(TypeError):
-        replace(string, old_value, new_value)
+        replace(string, old_value, new_value, count)
 
 @pytest.mark.strings
 @pytest.mark.split
