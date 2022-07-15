@@ -68,13 +68,13 @@ def test_copy_three():
 @pytest.mark.count_l
 @pytest.mark.parametrize("array,value,expected", [([2,2,2], 2, 3), (["a", "c", "a"], "a", 2)])
 def test_count_one(array, value, expected):
-    assert count(array, value) == expected
+    assert count_l(array, value) == expected
 
 @pytest.mark.lists
 @pytest.mark.count_l
 def test_count_two():
     with pytest.raises(TypeError):
-        count(24, 23)
+        count_l(24, 23)
 
 @pytest.mark.lists
 @pytest.mark.extend
@@ -100,14 +100,14 @@ def test_extend_three(array, iterable):
 @pytest.mark.index_l
 @pytest.mark.parametrize("array,value,expected", [([1,2,3], 3, 2), (["a","b","c"], "b", 1), (["a", "a", "c", "d", "c"], "c", 2)])
 def test_index_one(array, value, expected):
-    assert index(array, value) == expected
+    assert index_l(array, value) == expected
 
 @pytest.mark.lists
 @pytest.mark.index_l
 @pytest.mark.parametrize("array,value,expected", [([1,2,3], 4, ValueError), ("123", "1", TypeError)])
 def test_index_two(array, value, expected):
     with pytest.raises(expected):
-        index(array, value)
+        index_l(array, value)
 
 @pytest.mark.lists
 @pytest.mark.pop

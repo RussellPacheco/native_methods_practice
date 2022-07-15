@@ -9,13 +9,13 @@ def clear(array: list) -> list:
 def copy(array: list) -> list:
     #Return a copy of the list
     pass
-def count(array: list, value: any) -> int:
+def count_l(array: list, value: any) -> int:
     #Return the number of elements with the specified value
     pass
 def extend(array: list, iterable: any) -> list:
     #Add the element of an iterable, to the end of the current list
     pass
-def index(array: list, value: any) -> list:
+def index_l(array: list, value: any) -> list:
     #Return the index of the first element with the specified value
     pass
 def pop(array: list, index: Optional[int]) -> Tuple[list, any]:

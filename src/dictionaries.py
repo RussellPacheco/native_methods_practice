@@ -1,9 +1,9 @@
 from typing import Optional, Tuple
 
-def clear(dic: dict) -> dict:
+def clear_d(dic: dict) -> dict:
     #Remove all elements from the dictionary
     pass
-def copy(dic: dict) -> dict:
+def copy_d(dic: dict) -> dict:
     #Return a copy of the dictionary
     pass
 def get(dic: dict, key: str, value: Optional[any]) -> any:
@@ -12,7 +12,7 @@ def get(dic: dict, key: str, value: Optional[any]) -> any:
 def items(dic: dict) -> list:
     #Return a tuple for each key value pair
     pass
-def pop(dic: dict, key: str, defaultvalue: Optional[any]) -> Tuple[dict, any]:
+def pop_d(dic: dict, key: str, defaultvalue: Optional[any]) -> Tuple[dict, any]:
     #Remove the element with the specified key from the dic, otherwise return default value if not exist
     pass
 def update(dic: dict, iterable: dict) -> dict:

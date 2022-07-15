@@ -5,39 +5,39 @@ from ..src.dictionaries import *
 @pytest.mark.clear_d
 @pytest.mark.parametrize("dic,expected", [({"hello": "hi"}, {}), ({"one": 1, "two": 2}, {}), ({"one": True, "two": {"one": 1}, "three": [1,2,3]}, {})])
 def test_clear_one(dic, expected):
-    assert clear(dic) == expected
+    assert clear_d(dic) == expected
 
 @pytest.mark.dictionaries
 @pytest.mark.clear_d
 def test_clear_two():
     dic = {}
     dicID = id(dic)
-    assert id(clear(dic)) == dicID
+    assert id(clear_d(dic)) == dicID
 
 @pytest.mark.dictionaries
 @pytest.mark.clear_d
 def test_clear_three():
     with pytest.raises(TypeError):
-        clear([1,2,3])
+        clear_d([1,2,3])
 
 @pytest.mark.dictionaries
 @pytest.mark.copy_d
 @pytest.mark.parametrize("dic,expected", [({"one":1}, {"one":1}), ({"person": {"name": "jocelyn", "gender": "female", "likes": ["programming", "looking pretty", "Russell", "vintage"]}}, {"person": {"name": "jocelyn", "gender": "female", "likes": ["programming", "looking pretty", "Russell", "vintage"]}})])
 def test_copy_one(dic, expected):
-    assert copy(dic) == expected
+    assert copy_d(dic) == expected
 
 @pytest.mark.dictionaries
 @pytest.mark.copy_d
 @pytest.mark.parametrize("dic", [({"one":1}), ({"person": {"name": "jocelyn", "gender": "female", "likes": ["programming", "looking pretty", "Russell", "vintage"]}})])
 def test_copy_two(dic):
     dicID = id(dic)
-    assert id(copy(dic)) != dicID
+    assert id(copy_d(dic)) != dicID
 
 @pytest.mark.dictionaries
 @pytest.mark.copy_d
 def test_copy_three():
     with pytest.raises(TypeError):
-        copy([1,2,3])
+        copy_d([1,2,3])
 
 @pytest.mark.dictionaries
 @pytest.mark.get
@@ -64,24 +64,24 @@ def test_items_two():
         items([])
 
 @pytest.mark.dictionaries
-@pytest.mark.pop
+@pytest.mark.pop_d
 @pytest.mark.parametrize("dic,key,defaultvalue,expected", [({"one": 1}, "one", None, ({}, 1)), ({"name": "Russell", "height": 176, "weight": 70}, "eye-color", None, (None, {"name": "Russell", "height": 176, "weight": 70}))])
 def test_pop_one(dic, key, defaultvalue, expected):
-    assert pop(dic, key, defaultvalue) == expected
+    assert pop_d(dic, key, defaultvalue) == expected
 
 @pytest.mark.dictionaries
-@pytest.mark.pop
+@pytest.mark.pop_d
 @pytest.mark.parametrize("dic,key,expected_exception", [({"one":1}, "two", KeyError), (["one","two","three"], "two", TypeError)])
 def test_pop_two(dic, key, expected_exception):
     with pytest.raises(expected_exception):
-        pop(dic, key)
+        pop_d(dic, key)
 
 @pytest.mark.dictionaries
-@pytest.mark.pop
+@pytest.mark.pop_d
 def test_pop_three():
     dic = {"one": 1}
     dicID = id(dic)
-    assert id(pop(dic, "one")[0]) == dicID
+    assert id(pop_d(dic, "one")[0]) == dicID
 
 @pytest.mark.dictionaries
 @pytest.mark.update
