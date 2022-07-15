@@ -47,9 +47,10 @@ def test_get_one(dic, key, value, expected):
 
 @pytest.mark.dictionaries
 @pytest.mark.get
-def test_get_two():
+@pytest.mark.parametrize("dic,key,value", [([1,2,3], 1, 0), ({"one": 1}, 1, 0)])
+def test_get_two(dic, key, value):
     with pytest.raises(TypeError):
-        get([1,2,3], "1")
+        get(dic, key, value)
 
 @pytest.mark.dictionaries
 @pytest.mark.items
@@ -71,17 +72,17 @@ def test_pop_one(dic, key, defaultvalue, expected):
 
 @pytest.mark.dictionaries
 @pytest.mark.pop_d
-@pytest.mark.parametrize("dic,key,expected_exception", [({"one":1}, "two", KeyError), (["one","two","three"], "two", TypeError)])
-def test_pop_two(dic, key, expected_exception):
-    with pytest.raises(expected_exception):
-        pop_d(dic, key)
-
-@pytest.mark.dictionaries
-@pytest.mark.pop_d
-def test_pop_three():
+def test_pop_two():
     dic = {"one": 1}
     dicID = id(dic)
     assert id(pop_d(dic, "one")[0]) == dicID
+
+@pytest.mark.dictionaries
+@pytest.mark.pop_d
+@pytest.mark.parametrize("dic,key,expected_exception", [({"one":1}, "two", KeyError), (["one","two","three"], "two", TypeError), ({"one": 1}, 1)])
+def test_pop_three(dic, key, expected_exception):
+    with pytest.raises(expected_exception):
+        pop_d(dic, key)
 
 @pytest.mark.dictionaries
 @pytest.mark.update
@@ -98,7 +99,7 @@ def test_update_two():
 
 @pytest.mark.dictionaries
 @pytest.mark.update
-@pytest.mark.parametrize("dic,iterable,expected_exception", [({"one": 1}, ["two"], ValueError), (["one"], {"two": 2}, TypeError)])
+@pytest.mark.parametrize("dic,iterable,expected_exception", [({"one": 1}, ["two"], ValueError), (["one"], {"two": 2}, TypeError), ({"one": 1}, [1,2,3], TypeError)])
 def test_update_three(dic, iterable, expected_exception):
     with pytest.raises(expected_exception):
         update(dic, iterable)

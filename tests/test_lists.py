@@ -117,7 +117,7 @@ def test_pop_one(array, index, expected):
 
 @pytest.mark.lists
 @pytest.mark.pop
-@pytest.mark.parametrize("array,index,expected_exception", [([1,2,3], 3, IndexError), ("1,2,3", 0, TypeError)])
+@pytest.mark.parametrize("array,index,expected_exception", [([1,2,3], 3, IndexError), ("1,2,3", 0, TypeError), ([1,2,3], "0", TypeError)])
 def test_pop_two(array, index, expected_exception):
     with pytest.raises(expected_exception):
         pop(array, index)
@@ -169,6 +169,7 @@ def test_sort_two():
 
 @pytest.mark.lists
 @pytest.mark.sort
-def test_sort_three():
+@pytest.mark.parametrize("array,reverse", [({"one": 2}, True), ([1,2,3], "True")])
+def test_sort_three(array, reverse):
     with pytest.raises(TypeError):
-        sort({"one": 1, "two": 2})
+        sort(array, reverse)
