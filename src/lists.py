@@ -1,3 +1,5 @@
+from typing import Optional, Tuple
+
 def append(array: list, element: any) -> list:
     #Add an element to the end of the list
     pass
@@ -16,7 +18,7 @@ def extend(array: list, iterable: any) -> list:
 def index(array: list, value: any) -> list:
     #Return the index of the first element with the specified value
     pass
-def pop(array: list, index: int) -> list:
+def pop(array: list, index: Optional[int]) -> Tuple[list, any]:
     #Remove the element at the specified position. If index is not specified, pops the last
     #element in the index.
     pass

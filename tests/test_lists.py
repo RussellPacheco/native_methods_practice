@@ -1,3 +1,4 @@
+from typing import Type
 import pytest
 from ..src.lists import *
 
@@ -21,6 +22,12 @@ def test_append_three():
     assert id(append(arr, 4)) == arrID
 
 @pytest.mark.lists
+@pytest.mark.append
+def test_append_four():
+    with pytest.raises(TypeError):
+        append({"one": "one"}, 12)
+
+@pytest.mark.lists
 @pytest.mark.clear
 def test_clear_one():
     assert clear([1,2,3]) == []
@@ -31,6 +38,12 @@ def test_clear_two():
     arr = [1,2,3]
     arrID = id(arr)
     assert id(clear(arr)) == arrID
+
+@pytest.mark.lists
+@pytest.mark.clear
+def test_clear_three():
+    with pytest.raises(TypeError):
+        clear({"one": 1})
 
 
 @pytest.mark.lists
@@ -61,7 +74,7 @@ def test_count_one(array, value, expected):
 @pytest.mark.count
 def test_count_two():
     with pytest.raises(TypeError):
-        count(24)
+        count(24, 23)
 
 @pytest.mark.lists
 @pytest.mark.extend
@@ -71,17 +84,17 @@ def test_extend_one(array, iterable, expected):
 
 @pytest.mark.lists
 @pytest.mark.extend
-@pytest.mark.parametrize("array,iterable", [([1,2,3], 4), ("abc", ["d", "e", "f"])])
-def test_extend_two(array, iterable):
-    with pytest.raises(TypeError):
-        extend(array, iterable)
-
-@pytest.mark.lists
-@pytest.mark.extend
-def test_extend_three():
+def test_extend_two():
     arr = [1,2,3]
     arrID = id(arr)
     assert id(extend(arr, [4,5,6])) == arrID
+
+@pytest.mark.lists
+@pytest.mark.extend
+@pytest.mark.parametrize("array,iterable", [([1,2,3], 4), ("abc", ["d", "e", "f"])])
+def test_extend_three(array, iterable):
+    with pytest.raises(TypeError):
+        extend(array, iterable)
 
 @pytest.mark.lists
 @pytest.mark.index
@@ -146,3 +159,16 @@ def test_reverse_three():
 @pytest.mark.parametrize("array,reverse,expected", [([1,3,2], False, [1,2,3]), (["d", "c", "a"], False, ["a", "c", "d"]), (["a", "b", "c"], True, ["c", "b", "a"])])
 def test_sort_one(array, reverse, expected):
     assert sort(array, reverse) == expected
+
+@pytest.mark.lists
+@pytest.mark.sort
+def test_sort_two():
+    arr = [1,2,3]
+    arrID = id(arrID)
+    assert id(sort(arr)) == arrID
+
+@pytest.mark.lists
+@pytest.mark.sort
+def test_sort_three():
+    with pytest.raises(TypeError):
+        sort({"one": 1, "two": 2})
