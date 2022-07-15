@@ -29,9 +29,6 @@ def lower(string: str) -> str:
     pass
 def replace(string: str, old_value:str, new_value: str, count: Optional[int] ) -> str:
     #Return a new string where a specified value is replaced with a specified value
-    if type(string) != type(""):
-        raise TypeError
-    return string.replace(old_value, new_value, count)
     pass
 def split(string: str, separator: str) -> list:
     #Split the string at the specified separator and return a list

@@ -54,7 +54,7 @@ def test_count_two(string, value, start, end, not_expected):
 
 @pytest.mark.strings
 @pytest.mark.count
-@pytest.mark.parametrize("string,value", [(42, 2)])
+@pytest.mark.parametrize("string,value,start,end", [(42, 2, 0, None), ("one", 1, 0, None), ("two", "t", "0", None), ("three", "e", 0, "None")])
 def test_count_three(string, value):
     with pytest.raises(TypeError):
         count(string, value)
@@ -73,7 +73,7 @@ def test_index_two(string, value, start, end, not_expected):
 
 @pytest.mark.strings
 @pytest.mark.index
-@pytest.mark.parametrize("string,value", [(3423, 3)])
+@pytest.mark.parametrize("string,value,start,end", [(3423, 3, 0, None), ("one", 3, 0, None), ("two", "o", "0", None), ("three", "e", 0, "None")])
 def test_index_three(string, value):
     with pytest.raises(TypeError):
         index(string, value)
@@ -168,7 +168,7 @@ def test_replace_two(string, old_value, new_value, count, not_expected):
 
 @pytest.mark.strings
 @pytest.mark.replace
-@pytest.mark.parametrize("string,old_value,new_value,count", [(34324, "32", "12", 1), ("hello", 12, "rr", 1), ("hello", "ll", "rr", "2") ])
+@pytest.mark.parametrize("string,old_value,new_value,count", [(34324, "32", "12", 1), ("hello", 12, "rr", 1), ("hello", "ll", 11, 2), ("three", "ee", "eeee", "2") ])
 def test_replace_three(string, old_value, new_value, count):
     with pytest.raises(TypeError):
         replace(string, old_value, new_value, count)
