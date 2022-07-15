@@ -1,14 +1,16 @@
+from typing import Optional
+
 def capitalize(string: str) -> str:
     #Convert the first character to uppercase
     pass
-def center(string: str, length: int, character: str ) -> str:
+def center(string: str, length: int, character: Optional[str]) -> str:
     #Return a centered string in the specified length with the
     #optional specified character as the fill character  
     pass
-def count(string: str, value: str, start:int, end: int) -> str:
+def count(string: str, value: str, start: Optional[int], end: Optional[int]) -> str:
     #Return the number of times a specified value occurs in a string
     pass
-def index(string: str, value: str, start: int, end: int) -> int:
+def index(string: str, value: str, start: Optional[int], end: Optional[int]) -> int:
     #Search string for specified value and return the position of where it was found
     pass
 def islower(string: str) -> bool:
