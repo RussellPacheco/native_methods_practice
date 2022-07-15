@@ -29,7 +29,7 @@ def test_center_one(string, length, char, expected):
 
 @pytest.mark.strings
 @pytest.mark.center
-@pytest.mark.parametrize("string,length,char,not_expected", [("hello", 10, " " , "hello"), ("russell", 16, "-", "----russell-----")])
+@pytest.mark.parametrize("string,length,char,not_expected", [("hello", 10, " " , "hello"), ("russell", 16, "-", "-----russell----")])
 def test_center_two(string, length, char, not_expected):
     assert center(string, length, char) != not_expected
 
@@ -42,7 +42,7 @@ def test_center_three(string, length, char):
 
 @pytest.mark.strings
 @pytest.mark.count
-@pytest.mark.parametrize("string,value,start,end,expected", [("hello", "l", 0, -1, 2), ("the dog went to the park", "t", 12, -1, 2), ("hey you hey I like hey went hey", "hey", 0, 13, 2)])
+@pytest.mark.parametrize("string,value,start,end,expected", [("hello", "l", 0, None, 2), ("the dog went to the park", "t", 12, None, 2), ("hey you hey I like hey went hey", "hey", 0, 13, 2)])
 def test_count_one(string, value, start, end, expected):
     assert count(string, value, start, end) == expected
 
@@ -61,7 +61,7 @@ def test_count_three(string, value):
 
 @pytest.mark.strings
 @pytest.mark.index
-@pytest.mark.parametrize("string,value,start,end,expected", [("hello", "l", 0, -1, 2), ("russell", "s", 3, -1, 3), ("the dog went to the park", "park", 0, -1, 20)])
+@pytest.mark.parametrize("string,value,start,end,expected", [("hello", "l", 0, None, 2), ("russell", "s", 3, None, 3), ("the dog went to the park", "park", 0, None, 20)])
 def test_index_one(string, value, start, end, expected):
     assert index(string, value, start, end) == expected
 
@@ -116,24 +116,24 @@ def test_isnumeric_three(string):
     with pytest.raises(TypeError):
         isnumeric(string)
 
-@pytest.mark.strings
-@pytest.mark.join
-@pytest.mark.parametrize("iterable,separator,expected", [([1,2,3], "+", "1+2+3"), ("abc", "+", "a+b+c")])
-def test_join_one(iterable, separator, expected):
-    assert join(iterable, separator) == expected
+# @pytest.mark.strings
+# @pytest.mark.join
+# @pytest.mark.parametrize("separator,iterable,expected", [("+", [1,2,3], "1+2+3"), ("+", "abc", "a+b+c")])
+# def test_join_one(separator, iterable, expected):
+#     assert join(separator, iterable) == expected
 
-@pytest.mark.strings
-@pytest.mark.join
-@pytest.mark.parametrize("iterable,separator,not_expected", [("123", "+", "123"), ("123", "+", "123+"), ("123", " ", "123")])
-def test_join_two(iterable, separator, not_expected):
-    assert join(iterable, separator) != not_expected
+# @pytest.mark.strings
+# @pytest.mark.join
+# @pytest.mark.parametrize("separator,iterable,not_expected", [("+", "123", "123"), ("+", "123", "123+"), (" ", "123", "123")])
+# def test_join_two(separator, iterable, not_expected):
+#     assert join(separator, iterable) != not_expected
 
-@pytest.mark.strings
-@pytest.mark.join
-@pytest.mark.parametrize("iterable,separator", [(1232, "+")])
-def test_join_three(iterable, separator):
-    with pytest.raises(TypeError):
-        join(iterable, separator)
+# @pytest.mark.strings
+# @pytest.mark.join
+# @pytest.mark.parametrize("separator,iterable", [("+", 1232)])
+# def test_join_three(separator, iterable):
+#     with pytest.raises(TypeError):
+#         join(separator, iterable)
 
 @pytest.mark.strings
 @pytest.mark.lower
@@ -156,19 +156,19 @@ def test_lower_three(string):
 
 @pytest.mark.strings
 @pytest.mark.replace
-@pytest.mark.parametrize("string,old_value,new_value,expected", [("hello", "ll", "rr", "herro"), ("the dog went to the park", "park", "kennel", "the dog went to the kennel"), ("hello", "34234", "3344", "hello")])
-def test_replace_one(string, old_value, new_value, expected):
-    assert replace(string, old_value, new_value) == expected
+@pytest.mark.parametrize("string,old_value,new_value,count,expected", [("hello", "ll", "rr", 1, "herro"), ("the dog went to the park", "park", "kennel", 1, "the dog went to the kennel"), ("hello", "34234", "3344", 1, "hello"), ("hello", "ll", "rr", 0, "hello")])
+def test_replace_one(string, old_value, new_value, count, expected):
+    assert replace(string, old_value, new_value, count) == expected
 
 @pytest.mark.strings
 @pytest.mark.replace
-@pytest.mark.parametrize("string,old_value,new_value,not_expected", [("hello", "ll", "rr", "hello"), ("hello", "ll", "rr", "rr"), ("the dog went to the park", "park", "kennel", "the dog with to the park")])
-def test_replace_two(string, old_value, new_value, not_expected):
-    assert replace(string, old_value, new_value) != not_expected
+@pytest.mark.parametrize("string,old_value,new_value,count,not_expected", [("hello", "ll", "rr", 1, "hello"), ("hello", "ll", "rr", 1, "rr"), ("the dog went to the park", "park", "kennel", 1, "the dog with to the park")])
+def test_replace_two(string, old_value, new_value, count, not_expected):
+    assert replace(string, old_value, new_value, count) != not_expected
 
 @pytest.mark.strings
 @pytest.mark.replace
-@pytest.mark.parametrize("string,old_value,new_value", [(34324, 232, 3423)])
+@pytest.mark.parametrize("string,old_value,new_value,count", [(34324, "32", "12", 1), ("hello", 12, "rr", 1), ("hello", "ll", "rr", "2") ])
 def test_replace_three(string, old_value, new_value):
     with pytest.raises(TypeError):
         replace(string, old_value, new_value)

@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Iterable, Type
 
 def capitalize(string: str) -> str:
     #Convert the first character to uppercase
@@ -7,7 +7,7 @@ def center(string: str, length: int, character: Optional[str]) -> str:
     #Return a centered string in the specified length with the
     #optional specified character as the fill character  
     pass
-def count(string: str, value: str, start: Optional[int], end: Optional[int]) -> str:
+def count(string: str, value: str, start: Optional[int], end: Optional[int]) -> int:
     #Return the number of times a specified value occurs in a string
     pass
 def index(string: str, value: str, start: Optional[int], end: Optional[int]) -> int:
@@ -19,14 +19,19 @@ def islower(string: str) -> bool:
 def isnumeric(string: str) -> str:
     #Return true if all characters in the string are numeric
     pass
-def join(iterable: list, separator: str) -> str:
-    #Convert all elements of an iterable into a string
-    pass
+
+# def join(separator: str, iterable: Iterable) -> str:
+#     #Convert all elements of an iterable into a string
+#     pass
+
 def lower(string: str) -> str:
     #Convert a string into lowercase
     pass
-def replace(string: str, old_value:str, new_value: str ) -> str:
+def replace(string: str, old_value:str, new_value: str, count: Optional[int] ) -> str:
     #Return a new string where a specified value is replaced with a specified value
+    if type(string) != type(""):
+        raise TypeError
+    return string.replace(old_value, new_value, count)
     pass
 def split(string: str, separator: str) -> list:
     #Split the string at the specified separator and return a list
