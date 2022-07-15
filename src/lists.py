@@ -13,7 +13,7 @@ def count(array: list, value: any) -> int:
     #Return the number of elements with the specified value
     pass
 def extend(array: list, iterable: any) -> list:
-    #Add the element of a list (or any iterable), to the end of the current list
+    #Add the element of an iterable, to the end of the current list
     pass
 def index(array: list, value: any) -> list:
     #Return the index of the first element with the specified value
@@ -28,6 +28,6 @@ def remove(array: list, value: any) -> list:
 def reverse(array: list) -> list:
     #Return a list in the reverse order
     pass
-def sort(array: list, reverse: bool) -> list:
+def sort(array: list, reverse: Optional[bool]) -> list:
     #Return a sorted list ascending by default unless reverse is set to True
     pass

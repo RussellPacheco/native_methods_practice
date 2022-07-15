@@ -65,9 +65,9 @@ def test_items_two():
 
 @pytest.mark.dictionaries
 @pytest.mark.pop
-@pytest.mark.parametrize("dic,key,defaultvalue,expected", [({"one": 1}, "one", None, [{}, 1], ), ({"name": "Russell", "height": 176, "weight": 70}, "eye-color", None, [None, {"name": "Russell", "height": 176, "weight": 70}])])
+@pytest.mark.parametrize("dic,key,defaultvalue,expected", [({"one": 1}, "one", None, ({}, 1)), ({"name": "Russell", "height": 176, "weight": 70}, "eye-color", None, (None, {"name": "Russell", "height": 176, "weight": 70}))])
 def test_pop_one(dic, key, defaultvalue, expected):
-    assert [pop(dic, key, defaultvalue)] == expected
+    assert pop(dic, key, defaultvalue) == expected
 
 @pytest.mark.dictionaries
 @pytest.mark.pop
@@ -81,7 +81,7 @@ def test_pop_two(dic, key, expected_exception):
 def test_pop_three():
     dic = {"one": 1}
     dicID = id(dic)
-    assert id([pop(dic, "one")][0]) == dicID
+    assert id(pop(dic, "one")[0]) == dicID
 
 @pytest.mark.dictionaries
 @pytest.mark.update
