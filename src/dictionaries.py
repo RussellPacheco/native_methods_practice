@@ -10,10 +10,11 @@ def get(dic: dict, key: str, value: any) -> any:
 def items(dic: dict) -> list:
     #Return a tuple for each key value pair
     pass
-def pop(dic: dict, key: str) -> dict:
-    #Remove the element with the specified key
+def pop(dic: dict, key: str, defaultvalue: any) -> dict:
+    #Remove the element with the specified key from the dic, otherwise return default value if not exist
+    #Return the modified dict and the removed element
     pass
-def update(dic: dict, key: str, value: any) -> dict:
+def update(dic: dict, iterable: dict) -> dict:
     #Updates the dictionary with the specified key-value pairs
     pass
 def values(dic: dict) -> list:
