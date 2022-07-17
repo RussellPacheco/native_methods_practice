@@ -16,7 +16,7 @@ def test_cap_two(test_input, expected):
 
 @pytest.mark.strings
 @pytest.mark.capitalize
-@pytest.mark.parametrize("test_input", [(3), ([])])
+@pytest.mark.parametrize("test_input", [(3), ([]), ({}), (True), (())])
 def test_cap_three(test_input):
     with pytest.raises(TypeError):
         capitalize(test_input)
