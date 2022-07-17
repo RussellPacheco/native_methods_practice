@@ -16,7 +16,7 @@ def test_cap_two(test_input, expected):
 
 @pytest.mark.strings
 @pytest.mark.capitalize
-@pytest.mark.parametrize("test_input", [(3)])
+@pytest.mark.parametrize("test_input", [(3), ([])])
 def test_cap_three(test_input):
     with pytest.raises(TypeError):
         capitalize(test_input)
@@ -55,9 +55,9 @@ def test_count_two(string, value, start, end, not_expected):
 @pytest.mark.strings
 @pytest.mark.count
 @pytest.mark.parametrize("string,value,start,end", [(42, 2, 0, None), ("one", 1, 0, None), ("two", "t", "0", None), ("three", "e", 0, "None")])
-def test_count_three(string, value):
+def test_count_three(string, value, start, end):
     with pytest.raises(TypeError):
-        count(string, value)
+        count(string, value, start, end)
 
 @pytest.mark.strings
 @pytest.mark.index
@@ -74,9 +74,9 @@ def test_index_two(string, value, start, end, not_expected):
 @pytest.mark.strings
 @pytest.mark.index
 @pytest.mark.parametrize("string,value,start,end", [(3423, 3, 0, None), ("one", 3, 0, None), ("two", "o", "0", None), ("three", "e", 0, "None")])
-def test_index_three(string, value):
+def test_index_three(string, value, start, end):
     with pytest.raises(TypeError):
-        index(string, value)
+        index(string, value, start, end)
 
 @pytest.mark.strings
 @pytest.mark.islower

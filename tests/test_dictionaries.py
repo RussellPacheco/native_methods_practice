@@ -79,7 +79,7 @@ def test_pop_two():
 
 @pytest.mark.dictionaries
 @pytest.mark.pop_d
-@pytest.mark.parametrize("dic,key,expected_exception", [({"one":1}, "two", KeyError), (["one","two","three"], "two", TypeError), ({"one": 1}, 1)])
+@pytest.mark.parametrize("dic,key,expected_exception", [({"one":1}, "two", KeyError), (["one","two","three"], "two", TypeError), ({"one": 1}, 1, TypeError)])
 def test_pop_three(dic, key, expected_exception):
     with pytest.raises(expected_exception):
         pop_d(dic, key)
