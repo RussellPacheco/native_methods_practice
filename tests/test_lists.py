@@ -111,7 +111,7 @@ def test_index_two(array, value, expected):
 
 @pytest.mark.lists
 @pytest.mark.pop
-@pytest.mark.parametrize("array,index,expected", [([1,2,3], -1, ([1,2], 3)), ([1,2,3], 0, ([1, 2], 1)), (["a", "b", "c"], 2, (["a", "b"], "c"))])
+@pytest.mark.parametrize("array,index,expected", [([1,2,3], -1, ([1,2], 3)), ([1,2,3], 0, ([2, 3], 1)), (["a", "b", "c"], 2, (["a", "b"], "c"))])
 def test_pop_one(array, index, expected):
     assert pop(array, index) == expected
 
