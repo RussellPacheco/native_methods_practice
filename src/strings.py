@@ -2,7 +2,11 @@ from typing import Optional, Iterable, Type
 
 def capitalize(string: str) -> str:
     #Convert the first character to uppercase
-    pass
+    if type(string) != str:
+        raise TypeError
+    return string[0].upper() + string[1:]
+
+
 def center(string: str, length: int, character: Optional[str]) -> str:
     #Return a centered string in the specified length with the
     #optional specified character as the fill character  
