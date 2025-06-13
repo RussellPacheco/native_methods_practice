@@ -54,7 +54,7 @@ def test_get_two(dic, key, value):
 
 @pytest.mark.dictionaries
 @pytest.mark.items
-@pytest.mark.parametrize("dic, expected", [({"one": 1, "two": 2, "three": 3}, [("one", 1), ("two", 2), ("three", 3)]), ({"dog": {"name": "woof"}, "cat": {"name": "meow"}}, [("dog", {"name": "woof"}), ("cat", {"name": "meow"}), ({}, [])])])
+@pytest.mark.parametrize("dic, expected", [({"one": 1, "two": 2, "three": 3}, [("one", 1), ("two", 2), ("three", 3)]), ({"dog": {"name": "woof"}, "cat": {"name": "meow"}}, [("dog", {"name": "woof"}), ("cat", {"name": "meow"})])])
 def test_items_one(dic, expected):
     assert items(dic) == expected
 
